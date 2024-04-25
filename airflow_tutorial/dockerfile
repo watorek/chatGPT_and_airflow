@@ -1,0 +1,13 @@
+FROM apache/airflow:latest
+
+USER root
+RUN apt-get update && \
+    apt-get -y install git && \
+    apt-get clean
+    
+USER airflow
+
+# Install OpenAI packages
+RUN pip install openai
+RUN pip install pyyaml
+RUN pip install requests
